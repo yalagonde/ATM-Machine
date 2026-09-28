@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Change PIN</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+            background: #111827;
+        }
+
+        .atm-box {
+
+            width: 400px;
+
+            margin: 60px auto;
+
+            padding: 30px;
+
+            background: white;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+        }
+
+        h1 {
+            color: #1d4ed8;
+        }
+
+        input {
+
+            width: 85%;
+
+            padding: 12px;
+
+            margin: 8px;
+
+            font-size: 16px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 8px;
+
+        }
+
+        button {
+
+            padding: 12px 25px;
+
+            margin: 8px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+        }
+
+        .message {
+
+            font-weight: bold;
+
+            margin: 15px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="atm-box">
+
+    <h1>🔐 CHANGE PIN</h1>
+
+    {% if message %}
+
+        <div class="message">
+
+            {{ message }}
+
+        </div>
+
+    {% endif %}
+
+
+    {% if not success %}
+
+    <form method="POST">
+
+        <input
+            type="password"
+            name="old_pin"
+            maxlength="4"
+            placeholder="Enter Old PIN"
+            required
+        >
+
+        <input
+            type="password"
+            name="new_pin"
+            maxlength="4"
+            placeholder="Enter New PIN"
+            required
+        >
+
+        <input
+            type="password"
+            name="confirm_pin"
+            maxlength="4"
+            placeholder="Confirm New PIN"
+            required
+        >
+
+        <br>
+
+        <button type="submit">
+            🔐 CHANGE PIN
+        </button>
+
+    </form>
+
+    {% endif %}
+
+    <br>
+
+    <a href="{{ url_for('menu') }}">
+
+        <button type="button">
+            ⬅ BACK TO MAIN MENU
+        </button>
+
+    </a>
+
+</div>
+
+</body>
+
+</html>

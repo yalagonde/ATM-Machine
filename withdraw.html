@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ATM Withdraw</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #111827;
+            text-align: center;
+            padding-top: 70px;
+        }
+
+        .atm-box {
+            background: white;
+            width: 400px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        input {
+            padding: 12px;
+            width: 80%;
+            font-size: 18px;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin: 8px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="atm-box">
+
+    <h1>💵 WITHDRAW MONEY</h1>
+
+    <h3>Available Balance: ₹{{ balance }}</h3>
+
+    {% if message %}
+        <h3>{{ message }}</h3>
+    {% endif %}
+
+    <form method="POST">
+
+        <input
+            type="number"
+            name="amount"
+            placeholder="Enter Amount"
+            min="1"
+            required
+        >
+
+        <br><br>
+
+        <button type="submit">
+            💵 WITHDRAW
+        </button>
+
+    </form>
+
+    <br>
+
+    <!-- BACK TO MAIN MENU -->
+
+    <a href="{{ url_for('menu') }}">
+        <button type="button">
+            ⬅ BACK TO MAIN MENU
+        </button>
+    </a>
+
+</div>
+
+</body>
+
+</html>

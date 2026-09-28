@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Mini Statement</title>
+
+    <style>
+
+        body {
+             background: #111827;
+            font-family: Arial;
+            color: white;
+            text-align: center;
+        }
+
+        .atm-box {
+            width: 700px;
+            margin: 50px auto;
+            padding: 30px;
+            background:white;
+            border-radius: 15px;
+           
+        }
+
+        h1 {
+            color:black;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 25px;
+            border-collapse: collapse;
+
+        }
+
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #555;
+        }
+
+        th {
+            background: #00ffcc;
+            color: black;
+        }
+
+        td {
+            background: #333;
+        }
+
+        .empty {
+            color:black;
+            margin: 30px;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+           background: #2563eb;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="atm-box">
+
+    <h1>📜 MINI STATEMENT</h1>
+
+    <h3>Current Balance: ₹{{ "%.2f"|format(balance) }}</h3>
+
+
+    {% if transactions %}
+
+    <table>
+
+        <tr>
+            <th>Transaction</th>
+            <th>Amount</th>
+            <th>Balance</th>
+        </tr>
+
+
+        {% for transaction in transactions %}
+
+        <tr>
+
+            <td>
+                {% if transaction.type == "Withdraw" %}
+                    💵 Withdraw
+                {% else %}
+                    💰 Deposit
+                {% endif %}
+            </td>
+
+            <td>
+                ₹{{ "%.2f"|format(transaction.amount) }}
+            </td>
+
+            <td>
+                ₹{{ "%.2f"|format(transaction.balance) }}
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    {% else %}
+
+        <div class="empty">
+            📭 No transactions yet.
+        </div>
+
+    {% endif %}
+
+
+    <a href="/menu">
+        <button>⬅ Back to Main Menu</button>
+    </a>
+
+</div>
+
+</body>
+
+</html>

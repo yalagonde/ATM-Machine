@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ATM Main Menu</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #0f172a,
+                #1e3a8a,
+                #312e81
+            );
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+        }
+
+        /* ATM MAIN BOX */
+
+        .atm-box {
+
+            width: 500px;
+
+            padding: 35px;
+
+            background: rgba(255, 255, 255, 0.10);
+
+            border: 1px solid rgba(255, 255, 255, 0.20);
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.5);
+
+            backdrop-filter: blur(12px);
+
+        }
+
+
+        /* ATM ICON */
+
+        .atm-icon {
+
+            font-size: 55px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        /* TITLE */
+
+        h1 {
+
+            color: #38bdf8;
+
+            font-size: 30px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        /* BALANCE */
+
+        .balance-box {
+
+            background: rgba(0, 0, 0, 0.25);
+
+            border-radius: 15px;
+
+            padding: 18px;
+
+            margin-bottom: 25px;
+
+        }
+
+        .balance-title {
+
+            color: #cbd5e1;
+
+            font-size: 15px;
+
+            margin-bottom: 8px;
+
+        }
+
+        .balance {
+
+            color: #4ade80;
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* MENU GRID */
+
+        .menu {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+
+        }
+
+
+        /* BUTTON */
+
+        .menu button {
+
+            width: 100%;
+
+            min-height: 65px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            color: white;
+
+            cursor: pointer;
+
+            background: rgba(255, 255, 255, 0.12);
+
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
+            transition: 0.3s;
+
+        }
+
+
+        .menu button:hover {
+
+            transform: translateY(-3px);
+
+            background: rgba(56, 189, 248, 0.25);
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.3);
+
+        }
+
+
+        /* EXIT BUTTON */
+
+        .exit {
+
+            grid-column: span 2;
+
+        }
+
+        .exit button {
+
+            background: linear-gradient(
+                135deg,
+                #ef4444,
+                #b91c1c
+            );
+
+        }
+
+        .exit button:hover {
+
+            background: linear-gradient(
+                135deg,
+                #f87171,
+                #dc2626
+            );
+
+        }
+
+
+        /* FOOTER */
+
+        .footer {
+
+            margin-top: 25px;
+
+            color: #94a3b8;
+
+            font-size: 13px;
+
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 550px) {
+
+            .atm-box {
+
+                width: 92%;
+
+                padding: 25px;
+
+            }
+
+            .menu {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .exit {
+
+                grid-column: span 1;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="atm-box">
+
+
+    <div class="atm-icon">
+        🏧
+    </div>
+
+
+    <h1>
+        ATM MAIN MENU
+    </h1>
+
+
+    <!-- BALANCE -->
+
+    <div class="balance-box">
+
+        <div class="balance-title">
+            AVAILABLE BALANCE
+        </div>
+
+        <div class="balance">
+            ₹{{ "%.2f"|format(balance) }}
+        </div>
+
+    </div>
+
+
+    <!-- MENU -->
+
+    <div class="menu">
+
+
+        <!-- BALANCE -->
+
+        <a href="{{ url_for('show_balance') }}">
+
+            <button>
+                💰<br>
+                Balance
+            </button>
+
+        </a>
+
+
+        <!-- WITHDRAW -->
+
+        <a href="{{ url_for('withdraw') }}">
+
+            <button>
+                💵<br>
+                Withdraw
+            </button>
+
+        </a>
+
+
+        <!-- DEPOSIT -->
+
+        <a href="{{ url_for('deposit') }}">
+
+            <button>
+                💳<br>
+                Deposit
+            </button>
+
+        </a>
+
+
+        <!-- MINI STATEMENT -->
+
+        <a href="{{ url_for('transactions') }}">
+
+            <button>
+                📜<br>
+                Mini Statement
+            </button>
+
+        </a>
+
+
+        <!-- CHANGE PIN -->
+
+        <a href="{{ url_for('changepin') }}">
+
+            <button>
+                🔐<br>
+                Change PIN
+            </button>
+
+        </a>
+
+
+        <!-- EXIT -->
+
+        <a href="{{ url_for('exit_atm') }}"

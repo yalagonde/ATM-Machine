@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ATM Machine</title>
+    <style>
+        body {
+            margin: 0;
+            background: #111827;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .atm {
+            width: 500px;
+            background: #1f2937;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 0 25px black;
+        }
+
+        h1 {
+            color: #38bdf8;
+        }
+
+        .card {
+            width: 280px;
+            height: 160px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border-radius: 15px;
+            margin: 30px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 15px 35px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            background: #22c55e;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #16a34a;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="atm">
+
+    <h1>🏦 ATM MACHINE</h1>
+
+    <div class="card">
+        💳 INSERT CARD
+    </div>
+
+    <p>Please insert your ATM card to continue</p>
+
+    <form action="/insert-card" method="POST">
+        <button type="submit">INSERT CARD</button>
+    </form>
+
+</div>
+
+</body>
+</html>

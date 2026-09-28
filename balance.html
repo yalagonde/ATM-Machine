@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ATM Balance</title>
+
+    <style>
+        body {
+            background: #111827;
+            color: white;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .atm-box {
+            width: 500px;
+            margin: 100px auto;
+            padding: 40px;
+            background:white;
+            border-radius: 15px;
+            
+        }
+
+        h1 {
+            color:black;
+        }
+
+        .balance {
+            font-size: 30px;
+            color:black;
+            margin: 30px;
+        }
+
+        button {
+            padding: 12px 25px;
+             background: #2563eb;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="atm-box">
+
+    <h1>💰 ACCOUNT BALANCE</h1>
+
+    <div class="balance">
+        ₹{{ "%.2f"|format(balance) }}
+    </div>
+
+    <a href="/menu">
+        <button>⬅ Back to Main Menu</button>
+    </a>
+
+</div>
+
+</body>
+
+</html>
